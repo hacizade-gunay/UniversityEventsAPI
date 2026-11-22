@@ -1,0 +1,40 @@
+@UniversityEventsAPI_HostAddress = https://localhost:7185
+
+### 1. Yeni tədbir yaratmaq (POST)
+POST {{UniversityEventsAPI_HostAddress}}/api/events
+Content-Type: application/json
+
+{
+  "name": "Hackathon 2027",
+  "description": "University Coding Marathon",
+  "location": "Baku",
+  "eventDate": "2027-09-15T10:00:00",
+  "maxParticipants": 120
+}
+
+### 2. Bütün tədbirləri göstərmək (GET)
+GET {{UniversityEventsAPI_HostAddress}}/api/events
+
+### 3. ID-yə görə tədbiri tapmaq (GET)
+GET {{UniversityEventsAPI_HostAddress}}/api/events/1
+
+### 4. Tədbiri yeniləmək (PUT)
+PUT {{UniversityEventsAPI_HostAddress}}/api/events/1
+Content-Type: application/json
+
+{
+  "name": "AI Conference 2027 Updated",
+  "description": "Updated Artificial Intelligence Conference",
+  "location": "Baku",
+  "eventDate": "2027-05-25T11:00:00",
+  "maxParticipants": 200
+}
+
+### 5. Tədbiri silmək (DELETE)
+DELETE {{UniversityEventsAPI_HostAddress}}/api/events/2
+
+### 6. Əlavə tapşırıqlar: Axtarış, Filtr və Sıralama (GET)
+GET {{UniversityEventsAPI_HostAddress}}/api/events?name=AI&location=Baku&onlyUpcoming=true&minParticipants=100&sortByDate=true
+
+### 7. Əlavə tapşırıq: JSON formatında ixrac (Export)
+GET {{UniversityEventsAPI_HostAddress}}/api/events/export

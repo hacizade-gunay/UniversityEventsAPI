@@ -1,0 +1,77 @@
+{
+  "info": {
+    "name": "UniversityEventsAPI",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Bütün tədbirləri al (GET)",
+      "request": {
+        "method": "GET",
+        "url": "https://localhost:7185/api/events"
+      }
+    },
+    {
+      "name": "2. ID-yə görə tədbir (GET)",
+      "request": {
+        "method": "GET",
+        "url": "https://localhost:7185/api/events/1"
+      }
+    },
+    {
+      "name": "3. Yeni tədbir yarat (POST)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"AI Conference 2027\",\n  \"description\": \"Artificial Intelligence Conference\",\n  \"location\": \"Baku\",\n  \"eventDate\": \"2027-05-20T10:00:00\",\n  \"maxParticipants\": 150\n}"
+        },
+        "url": "https://localhost:7185/api/events"
+      }
+    },
+    {
+      "name": "4. Tədbiri yenilə (PUT)",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"AI Conference 2027 Updated\",\n  \"description\": \"Updated Description\",\n  \"location\": \"Baku\",\n  \"eventDate\": \"2027-05-25T11:00:00\",\n  \"maxParticipants\": 250\n}"
+        },
+        "url": "https://localhost:7185/api/events/1"
+      }
+    },
+    {
+      "name": "5. Tədbiri sil (DELETE)",
+      "request": {
+        "method": "DELETE",
+        "url": "https://localhost:7185/api/events/1"
+      }
+    },
+    {
+      "name": "6. Əlavə: Axtarış, Filtr və Sıralama",
+      "request": {
+        "method": "GET",
+        "url": "https://localhost:7185/api/events?name=AI&location=Baku&onlyUpcoming=true&minParticipants=100&sortByDate=true"
+      }
+    },
+    {
+      "name": "7. Əlavə: JSON İxrac (Export)",
+      "request": {
+        "method": "GET",
+        "url": "https://localhost:7185/api/events/export"
+      }
+    }
+  ]
+}
